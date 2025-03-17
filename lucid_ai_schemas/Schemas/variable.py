@@ -1,0 +1,1 @@
+MAX_LEN_STR_S = 255
