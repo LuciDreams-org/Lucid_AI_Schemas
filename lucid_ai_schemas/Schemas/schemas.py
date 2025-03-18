@@ -15,6 +15,11 @@ class Ai_utilsBase(BaseModel):
         return self.model_dump()
 
 
+class PromptUpdateSchema(Ai_utilsBase):
+    prompt: str
+    engine: Optional[str] = None
+
+
 # General Prompts
 class GraphType(Enum):
     Area = "Area"
