@@ -15,6 +15,30 @@ class Ai_utilsBase(BaseModel):
         return self.model_dump()
 
 
+class PromptUpdateSchema(Ai_utilsBase):
+    prompt: str
+    engine: Optional[str] = None
+
+
+class OrchestratorSchema(Ai_utilsBase):
+    branch_id: Optional[int] = Field(
+        default=None,
+        description="The branch ID of the business.")
+    freetext: Optional[str] = Field(
+        default=None,
+        description="""A conversational description of the business
+        by the client."""
+    )
+
+
+class LogAIResponseObject(Ai_utilsBase):
+    prompt_object: Optional[dict] = None
+    response: Optional[dict] = None
+    response_time: Optional[float] = None
+    payload: Optional[dict] = None
+    parsed_input: Optional[str] = None
+
+
 # General Prompts
 class GraphType(Enum):
     Area = "Area"
