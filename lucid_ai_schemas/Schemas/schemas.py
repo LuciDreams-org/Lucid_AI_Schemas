@@ -209,8 +209,8 @@ class AssumptionsInputSchema(Ai_utilsBase):
         description="The sectors the business is involved in.")
     freetext: Optional[str] = Field(
         default=None,
-        description="""A conversational description of the business
-        by the client."""
+        description="""A conversational description of the
+        business by the client."""
     )
     location: Optional[str] = Field(
         default=None,
@@ -218,15 +218,15 @@ class AssumptionsInputSchema(Ai_utilsBase):
     )
     products: Optional[Any] = Field(
         default=None,
-        description="""Potential products that the company is known to have."""
-    )
+        description="Potential products that the company is known to have.")
     company_stage: Optional[str] = Field(
         default=None,
         description="The funding stage the company is currently in.")
-    funding_raise: Optional[str] = Field(
+    funding_raise: Optional[str | int] = Field(
         default=None,
-        description="The amount of funding the business has raised.")
-    target_round_funding: Optional[str] = Field(
+        description="""The amount of funding the business has raised."""
+    )
+    target_round_funding: Optional[str | int] = Field(
         default=None,
         description="""The amount of funding the business plans
         to raise in the future."""
@@ -236,7 +236,7 @@ class AssumptionsInputSchema(Ai_utilsBase):
         description="""The date when the business plans to get funding,
         as a string."""
     )
-    target_revenue_in_one_year: Optional[str] = Field(
+    target_revenue_in_one_year: Optional[str | int] = Field(
         default=None,
         description="""The revenue the business expects to have in a year."""
     )
@@ -273,7 +273,8 @@ class CompanyDetailsSchema(Ai_utilsBase):
     Input schema for company details.
     """
     sectors: Optional[str | List[str]] = Field(
-        default=None, description="The sectors the business is involved in."
+        default=None,
+        description="""The sectors the business is involved in."""
     )
     freetext: Optional[str] = Field(
         default=None,
